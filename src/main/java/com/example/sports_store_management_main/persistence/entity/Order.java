@@ -9,25 +9,16 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "products")
-public class Product {
-
+@Table(name="orders")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private Double price;
-
-    @OneToMany(mappedBy = "product")
-    private List<Review> reviews;
-    //= new ArrayList<>();
-
     @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
 
 
-    
 }
